@@ -10,8 +10,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = task.new(task_params)
-    if t@task.save
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new
     end
   end
 
